@@ -10,7 +10,13 @@ import Tasks from "./components/Tasks";
 import TasksPanel from "./components/TasksPanel";
 import Tickets from "./components/Tickets";
 import TransactionsPanel from "./components/TransactionsPanel";
+import { connect } from 'react-redux';
 
+function mapStateToProps(state){
+  return {
+    newComments: state.newComments
+  }
+ } 
 
 function App(props) {
   return (
@@ -57,6 +63,12 @@ function App(props) {
 
   );
 }
+
+const AppContainer = connect(
+  mapStateToProps
+ )(App);
+ export default AppContainer
+ 
 
 App.propTypes = {
   dateTime: PropTypes.string.isRequired,

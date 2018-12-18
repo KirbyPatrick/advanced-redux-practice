@@ -4,6 +4,11 @@ import App from "./App";
 import "./index.css";
 import state from "./state";
 
+
+import store from "./store";
+import {Provider} from 'react-redux';
+
+
 const {
 dateTime,
 newComments,
@@ -17,6 +22,7 @@ messages
 } = state;
 
 ReactDOM.render(
+  <Provider store={store}>
   <App 
     taskItem={taskItem}
     dateTime={dateTime}
@@ -28,5 +34,6 @@ ReactDOM.render(
     messages={messages}
     tasks={tasks}
     />,
+    </Provider>
   document.getElementById("root")
 );
